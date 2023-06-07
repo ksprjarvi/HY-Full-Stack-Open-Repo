@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./Header";
 import Statistics from "./Statistics";
+import Button from "./Button";
 
 const App = () => {
   // tallenna napit omaan tilaansa
@@ -11,8 +12,10 @@ const App = () => {
   const [average, setAverage] = useState(0);
   const [sum, setSum] = useState(0);
   const [positives, setPositives] = useState(0);
+  const [hasStatistics, setHasStatisics] = useState(false);
 
   const handleClickGood = () => {
+    setHasStatisics(true);
     const updatedGood = good + 1;
     setGood(updatedGood);
     const updatedAll = all + 1;
@@ -26,6 +29,7 @@ const App = () => {
   };
 
   const handleClickNeutral = () => {
+    setHasStatisics(true);
     const updatedNeutral = neutral + 1;
     setNeutral(updatedNeutral);
     const updatedAll = all + 1;
@@ -39,6 +43,7 @@ const App = () => {
   };
 
   const handleClickBad = () => {
+    setHasStatisics(true);
     setBad(bad + 1);
     const updatedAll = all + 1;
     setAll(updatedAll);
@@ -53,10 +58,14 @@ const App = () => {
   return (
     <div>
       <Header header="give feedback" />
-      <button onClick={handleClickGood}>Good</button>
+      <Button buttonText="good" makeTask={handleClickGood} />
+      <Button buttonText="neutral" makeTask={handleClickNeutral} />
+      <Button buttonText="bad" makeTask={handleClickBad} />
+      {/* <button onClick={handleClickGood}>Good</button>
       <button onClick={handleClickNeutral}>Neutral</button>
-      <button onClick={handleClickBad}>Bad</button>
+      <button onClick={handleClickBad}>Bad</button> */}
       <Statistics
+        hasStatistics={hasStatistics}
         good={good}
         neutral={neutral}
         bad={bad}

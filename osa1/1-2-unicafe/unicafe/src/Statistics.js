@@ -1,17 +1,22 @@
 import Header from "./Header";
+import StatisticLine from "./StatisticLine";
 
 const Statistics = (props) => {
-  return (
-    <div>
-      <Header header="statistics" />
-      <p>Good {props.good}</p>
-      <p>Neutral {props.neutral}</p>
-      <p>Bad {props.bad}</p>
-      <p>All {props.all}</p>
-      <p>Average {props.average}</p>
-      <p>Positives {props.positives}</p>
-    </div>
-  );
+  if (props.hasStatistics) {
+    return (
+      <div>
+        <Header header="statistics" />
+        <StatisticLine statistic={props.good} statisticText="good" />
+        <StatisticLine statistic={props.neutral} statisticText="neutral" />
+        <StatisticLine statistic={props.bad} statisticText="bad" />
+        <StatisticLine statistic={props.all} statisticText="all" />
+        <StatisticLine statistic={props.average} statisticText="average" />
+        <StatisticLine statistic={props.positives} statisticText="positives" />
+      </div>
+    );
+  } else {
+    return <p>No feedback given</p>;
+  }
 };
 
 export default Statistics;

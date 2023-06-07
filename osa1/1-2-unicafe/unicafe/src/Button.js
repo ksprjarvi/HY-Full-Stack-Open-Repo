@@ -1,5 +1,5 @@
 const Button = (props) => {
-  return <button onClick={() => console.log("moi")}>{props.buttonText}</button>;
+  return <button onClick={props.makeTask}>{props.buttonText}</button>;
 };
 
 export default Button;
