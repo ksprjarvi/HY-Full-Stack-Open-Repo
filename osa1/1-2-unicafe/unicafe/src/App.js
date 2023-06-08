@@ -61,9 +61,6 @@ const App = () => {
       <Button buttonText="good" makeTask={handleClickGood} />
       <Button buttonText="neutral" makeTask={handleClickNeutral} />
       <Button buttonText="bad" makeTask={handleClickBad} />
-      {/* <button onClick={handleClickGood}>Good</button>
-      <button onClick={handleClickNeutral}>Neutral</button>
-      <button onClick={handleClickBad}>Bad</button> */}
       <Statistics
         hasStatistics={hasStatistics}
         good={good}
